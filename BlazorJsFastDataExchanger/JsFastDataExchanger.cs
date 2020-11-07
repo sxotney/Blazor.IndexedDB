@@ -1,4 +1,4 @@
-﻿using Mono.WebAssembly.Interop;
+﻿using WebAssembly.JSInterop;
 
 
 namespace BlazorJsFastDataExchanger

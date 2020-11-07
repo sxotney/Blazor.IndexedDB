@@ -44,6 +44,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.5" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorJsFastDataExchanger\BlazorJsFastDataExchanger.csproj" />
+  </ItemGroup>
+
   <!--<Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
     <Exec Command="npm install" />
