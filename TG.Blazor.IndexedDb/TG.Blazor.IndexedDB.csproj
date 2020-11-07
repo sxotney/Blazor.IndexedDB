@@ -46,7 +46,7 @@
 
 
   <ItemGroup>
-    <ProjectReference Include="..\BlazorJsFastDataExchanger\BlazorJsFastDataExchanger.csproj" />
+    <ProjectReference Include="..\WebAssembly.JSInterop\WebAssembly.JSInterop.csproj" />
   </ItemGroup>
 
   <!--<Target Name="EnsureNpmRestored" Condition="!Exists('node_modules')">

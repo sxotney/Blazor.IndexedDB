@@ -77,6 +77,7 @@ namespace WebAssembly.JSInterop
         public TRes InvokeUnmarshalled<T0, T1, T2, TRes>(string identifier, T0 arg0, T1 arg1, T2 arg2)
         {
             var result = InternalCalls.InvokeJSUnmarshalled<T0, T1, T2, TRes>(out var exception, identifier, arg0, arg1, arg2);
+            Console.WriteLine(result);
             return exception != null
                 ? throw new JSException(exception)
                 : result;

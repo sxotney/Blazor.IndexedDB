@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.JSInterop;
+using BlazorJsFastDataExchanger;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace TG.Blazor.IndexedDB
 {
@@ -12,7 +16,8 @@ namespace TG.Blazor.IndexedDB
     public class IndexedDBManager
     {
         private readonly DbStore _dbStore;
-        private readonly IJSRuntime _jsRuntime;
+        private readonly JSInProcessRuntime _jsRuntime;
+        //private readonly IJs
         private const string InteropPrefix = "TimeGhost.IndexedDbManager";
         private bool _isOpen;
 
@@ -24,7 +29,7 @@ namespace TG.Blazor.IndexedDB
         public IndexedDBManager(DbStore dbStore, IJSRuntime jsRuntime)
         {
             _dbStore = dbStore;
-            _jsRuntime = jsRuntime;
+            _jsRuntime = (JSInProcessRuntime)jsRuntime;
         }
 
         public List<StoreSchema> Stores => _dbStore.Stores;
@@ -163,7 +168,13 @@ namespace TG.Blazor.IndexedDB
             await EnsureDbOpen();
             try
             {
-                var results = await CallJavascript<List<TResult>>(DbFunctions.GetRecords, storeName);
+                
+                await CallJavascript(DbFunctions.GetRecords, storeName);
+                var base64string = await Task.Run(()=>JsFastDataExchanger.GetStringData("Window.idbGetRecordsBinaryResults"));
+                Console.WriteLine(base64string);
+                
+                var jsonString = Base64StringDecode(base64string);
+                var results = JsonSerializer.Deserialize<List<TResult>>(jsonString);
 
                 RaiseNotification(IndexDBActionOutCome.Successful, $"Retrieved {results.Count} records from {storeName}");
 
@@ -311,6 +322,16 @@ namespace TG.Blazor.IndexedDB
             return await _jsRuntime.InvokeAsync<TResult>($"{InteropPrefix}.{functionName}", args);
         }
 
+        private async Task CallJavascript(string functionName, params object[] args)
+        {
+            await _jsRuntime.InvokeVoidAsync($"{InteropPrefix}.{functionName}", args);
+        }
+
+        //private async Task<TResult> CallJavascriptUnmarshalled<TData, TResult>(string functionName, TData data)
+        //{
+        //    return await _jsRuntime.Invoke<TResult>($"{InteropPrefix}.{functionName}", data);
+        //}
+
         private async Task EnsureDbOpen()
         {
             if (!_isOpen) await OpenDb();
@@ -319,6 +340,15 @@ namespace TG.Blazor.IndexedDB
         private void RaiseNotification(IndexDBActionOutCome outcome, string message)
         {
             ActionCompleted?.Invoke(this, new IndexedDBNotificationArgs { Outcome = outcome, Message = message });
+        }
+
+        private string Base64StringDecode(string encodedString)
+        {
+            var bytes = Convert.FromBase64String(encodedString);
+
+            var decodedString = Encoding.UTF8.GetString(bytes);
+
+            return decodedString;
         }
     }
 }

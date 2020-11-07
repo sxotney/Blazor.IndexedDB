@@ -1,4 +1,7 @@
-/******/ (function(modules) { // webpackBootstrap
+
+
+
+/******/ (function (modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -206,7 +209,9 @@ class IndexedDbManager {
             const tx = this.getTransaction(this.dbInstance, storeName, 'readonly');
             let results = yield tx.objectStore(storeName).getAll();
             yield tx.complete;
-            return results;
+            //return binary here
+            Window.idbGetRecordsBinaryResults = btoa(JSON.stringify(results));
+            
         });
         this.clearStore = (storeName) => __awaiter(this, void 0, void 0, function* () {
             const tx = this.getTransaction(this.dbInstance, storeName, 'readwrite');
