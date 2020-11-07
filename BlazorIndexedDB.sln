@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blazor.IndexedDB.Test", "Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TG.Blazor.IndexedDB", "TG.Blazor.IndexedDb\TG.Blazor.IndexedDB.csproj", "{0980DB24-DF42-4931-A5F5-30AB9EE2838C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorJsFastDataExchanger", "BlazorJsFastDataExchanger\BlazorJsFastDataExchanger.csproj", "{6C664C02-BDB1-4364-B398-CDE4841C2EF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +31,17 @@ Global
 		{0980DB24-DF42-4931-A5F5-30AB9EE2838C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0980DB24-DF42-4931-A5F5-30AB9EE2838C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0980DB24-DF42-4931-A5F5-30AB9EE2838C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C664C02-BDB1-4364-B398-CDE4841C2EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C664C02-BDB1-4364-B398-CDE4841C2EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C664C02-BDB1-4364-B398-CDE4841C2EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C664C02-BDB1-4364-B398-CDE4841C2EF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0980DB24-DF42-4931-A5F5-30AB9EE2838C} = {C0A285CB-8B91-4D58-AE08-0DA00E78ED8D}
+		{6C664C02-BDB1-4364-B398-CDE4841C2EF3} = {C0A285CB-8B91-4D58-AE08-0DA00E78ED8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0542D19B-0940-47F5-8E86-FA5189E9F7EE}
