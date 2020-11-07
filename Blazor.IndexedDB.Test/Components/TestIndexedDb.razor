@@ -19,7 +19,7 @@
         <button class="btn btn-outline-primary m-4" @onclick="GetRecords">Get Records</button>
         <button class="btn btn-outline-primary m-4" @onclick="ClearStore">Clear Store</button>
         <button class="btn btn-outline-primary m-4" @onclick="DeleteDatabase">Delete Database</button>
-        <button class="btn btn-outline-danger m-4" @onclick="Add130Records">Pre-populate Store</button>
+        <button class="btn btn-outline-danger m-4" @onclick="Add130000Records">Pre-populate Store</button>
         <div class="m-4 d-flex flex-row" >
             <button class="btn btn-outline-primary mr-2" @onclick="AddNewStore">Add New Store</button>
             <input type="text" placeholder="Enter new store name" @bind="NewStoreName" />
@@ -112,9 +112,9 @@
         StateHasChanged();
     }
 
-    protected async void Add130Records()
+    protected async void Add130000Records()
     {
-        for (int i = 0; i < 129; i++)
+        for (int i = 0; i < 130000; i++)
         {
             var dummyRecord = new Person
             {
