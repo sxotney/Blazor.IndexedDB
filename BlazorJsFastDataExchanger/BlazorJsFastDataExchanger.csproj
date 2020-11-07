@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+	  <TargetFramework>net5.0</TargetFramework>
+
+    <Authors>Lupusa</Authors>
+    <Company>Lupusa</Company>
+    <Description>This package contains fast JS data exchange helper for blazor.</Description>
+    <RepositoryUrl>https://github.com/Lupusa87/BlazorJsFastDataExchanger</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <PackageProjectUrl>https://lupblazordemos.z13.web.core.windows.net/PageLoadFile</PackageProjectUrl>
+    <PackageTags>Blazor</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <AssemblyVersion>1.0.6.0</AssemblyVersion>
+    <FileVersion>1.0.6.0</FileVersion>
+    <Version>1.0.6.0</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0-rc.1.20451.17" />
+  </ItemGroup>
+
+</Project>
