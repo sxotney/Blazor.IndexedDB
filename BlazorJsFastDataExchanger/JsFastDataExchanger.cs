@@ -13,7 +13,7 @@ namespace BlazorJsFastDataExchanger
         {
 
             mono.InvokeUnmarshalled<string, string, bool>(
-                    "BJSFDEJsFunctions.BJSFDESetStringData", variableName, data);
+                    "FastInterop.SetStringData", variableName, data);
         }
 
 
@@ -21,14 +21,14 @@ namespace BlazorJsFastDataExchanger
         {
 
             mono.InvokeUnmarshalled<string, byte[], bool>(
-                    "BJSFDEJsFunctions.BJSFDESetBinaryData", variableName, data);
+                    "FastInterop.SetBinaryData", variableName, data);
         }
 
 
         public static string GetStringData(string variableName)
         {
             return mono.InvokeUnmarshalled<string, string>(
-                    "BJSFDEJsFunctions.BJSFDEGetStringData", variableName);
+                    "FastInterop.GetStringData", variableName);
 
         }
 
@@ -36,15 +36,15 @@ namespace BlazorJsFastDataExchanger
         public static bool GetBinaryData(string variableName, byte[] destination)
         {
             return mono.InvokeUnmarshalled<string, byte[], bool>(
-                    "BJSFDEJsFunctions.BJSFDEGetBinaryData", variableName, destination);
+                    "FastInterop.GetBinaryData", variableName, destination);
 
         }
 
-        public static int GetBinaryDataLenght(string variableName)
+        public static int GetBinaryDataLength(string variableName)
         {
 
             return mono.InvokeUnmarshalled<string, int>(
-                    "BJSFDEJsFunctions.BJSFDEGetBinaryDataLenght", variableName);
+                    "FastInterop.GetBinaryDataLength", variableName);
 
         }
 
