@@ -20,5 +20,9 @@ module.exports = (env, args) =>({
     output: {
         path: path.join(__dirname, '/wwwroot'),
         filename: '[name].js'
-    }
+    },
+    // .... other webpack, like output, etc.
+    optimization: {
+        minimize: false
+    },
 });
